@@ -12,23 +12,21 @@ namespace e_com.EF
     using System;
     using System.Collections.Generic;
     
-    public partial class Product
+    public partial class Customer
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Product()
+        public Customer()
         {
-            this.OrderDetails = new HashSet<OrderDetail>();
+            this.Orders = new HashSet<Order>();
         }
     
         public int Id { get; set; }
-        public string Title { get; set; }
-        public string Image { get; set; }
-        public string Description { get; set; }
-        public double Price { get; set; }
-        public int CId { get; set; }
+        public string Name { get; set; }
+        public string Email { get; set; }
+        public string Address { get; set; }
+        public string Phone { get; set; }
     
-        public virtual Category Category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }

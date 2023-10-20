@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "Edit";
+    ViewBag.HeadingTitle = "Update Procuct";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div class="d-flex align-items-center justify-content-center h-100">
+    <form method="post" action="" class="shadow-lg p-4 mb-5 bg-body-tertiary rounded" enctype="multipart/form-data">
+        <div class="form-group mb-3">
+            <label class="form-label" for="title">Title</label>
+            <input type="text" value="@Model.Title" name="Title" class="form-control" id="title" placeholder="Title">
+        </div>
+        <div class="form-group mb-3">
+            <label class="form-label" for="price">Price</label>
+            <input type="text" value="@Model.Price" name="Price" class="form-control" id="price" placeholder="Price">
+        </div>
+        <div class="form-group mb-3">
+            <label for="exampleFormControlFile1" class="form-label">Product Image</label>
+            <input type="file" name="Image" class="form-control" id="exampleFormControlFile1">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlFile1" class="form-label">Select Product Category</label>
+            <select class="form-select" name="CId" aria-label="Default select example">
+                @foreach (var c in ViewBag.Categorys)
+                {
+                    <option value="@c.Id" selected="@(Model.CId == c.Id)">@c.Name</option>
+                }
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Product Description</label>
+            <textarea class="form-control" name="Description" id="exampleFormControlTextarea1" rows="3">@Model.Description</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+

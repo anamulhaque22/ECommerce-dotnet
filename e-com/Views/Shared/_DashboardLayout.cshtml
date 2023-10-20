@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/all.min.css" rel="stylesheet" />
+    <link href="~/Content/DashboardShideBar.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <button type="button" id="sidebarCollapse" class="btn btn-info">
+                <i id="leftSidebarToggleBtnLeft" class="fas fa-angle-left"></i>
+                <i id="leftSidebarToggleBtnRight" class="fas fa-angle-right" style="display: none;"></i>
+
+            </button>
+            <div class="sidebar-header">
+                <h3>E-Comm Deashboard</h3>
+            </div>
+
+            <ul class="list-unstyled components">
+
+                <li>
+                    <a href="/product/index">Product List</a>
+                </li>
+                <li>
+                    <a href="/product/create">Add Product</a>
+                </li>
+                <li>
+                    <a href="/category/index">Category List</a>
+                </li>
+                <li>
+                    <a href="/category/create">Add Category</a>
+                </li>
+            </ul>
+
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content">
+                <h3 class="page-title text-center py-2 text-white">@ViewBag.HeadingTitle</h3>
+                @RenderBody()
+            </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script>
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+                const leftArrow = $("#leftSidebarToggleBtnLeft");
+                const rightArrow = $("#leftSidebarToggleBtnRight");
+                if (leftArrow.is(":visible")) {
+                    leftArrow.hide();
+                    rightArrow.show();
+                } else {
+                    leftArrow.show();
+                    rightArrow.hide();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,13 +1,18 @@
 ﻿
 @{
     ViewBag.Title = "Edit";
+    ViewBag.HeadingTitle = "Update Category";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 }
 
-<h2>Edit</h2>
-
-<form action="" method="post">
-    <input type="text" name="Name" value="@Model.Name" />
-    <input type="hidden" name="Id" value="@Model.Id" />
-    <input type="submit" name="name" value="Submit" class="btn btn-primary" />
-</form>
+<div class="d-flex align-items-center justify-content-center h-100">
+    <form method="post" action="" class="shadow-lg p-4 mb-5 bg-body-tertiary rounded">
+        <div class="form-group mb-3">
+            <label class="form-label" for="title">Category Name</label>
+            <input type="text" name="Name" class="form-control" id="title" placeholder="Category Name" value="@Model.Name">
+        </div>
+        <input type="hidden" name="Id" value="@Model.Id" />
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
 

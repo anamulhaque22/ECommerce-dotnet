@@ -1,14 +1,17 @@
 ﻿using e_com.EF;
+using e_com.Utils;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
 namespace e_com.Controllers
 {
-    public class HomeController : Controller
+    public class ProductController : Controller
     {
+        // GET: Product
         public ActionResult Index()
         {
             var db = new E_CommEntities();
@@ -25,12 +28,19 @@ namespace e_com.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Create(Product p)
+        public ActionResult Create(Product p, HttpPostedFileBase Image)
         {
             var db = new E_CommEntities();
-            db.Products.Add(p);
-            db.SaveChanges();
-            
+            if (Image != null)
+            {
+                string fileName = Image.FileName;
+                p.Image = fileName;
+                string path = Server.MapPath("~/Content/Product/"+ fileName);
+                Image.SaveAs(path);
+                db.Products.Add(p);
+                db.SaveChanges();
+            }
+
             return RedirectToAction("Index", "Product");
         }
 
@@ -47,7 +57,8 @@ namespace e_com.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(Product p) {
+        public ActionResult Edit(Product p)
+        {
             var db = new E_CommEntities();
             var dbData = db.Products.Find(p.Id);
             dbData.Title = p.Title;
@@ -58,14 +69,20 @@ namespace e_com.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
         public ActionResult Delete(int id)
         {
             var db = new E_CommEntities();
             var dbProduct = db.Products.Find(id);
+            string folderPath = Server.MapPath("~/Content/Product/");
+            string path = Path.Combine(folderPath, dbProduct.Image);
+            if (System.IO.File.Exists(path))
+            {
+                System.IO.File.Delete(path);
+            }
             db.Products.Remove(dbProduct);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Product");
         }
-
     }
 }

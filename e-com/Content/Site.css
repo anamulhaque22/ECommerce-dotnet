@@ -18,3 +18,109 @@ select,
 textarea {
     max-width: 280px;
 }
+
+
+body {
+    background: #e2eaef;
+    font-family: "Open Sans", sans-serif;
+}
+
+.item {
+    color: #747d89;
+    min-height: 325px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.thumb-wrapper {
+    padding: 25px 15px;
+    background: #fff;
+    border-radius: 6px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.2);
+}
+.item .img-box {
+    height: 120px;
+    margin-bottom: 20px;
+    width: 100%;
+    position: relative;
+}
+
+.item img {
+    max-width: 100%;
+    max-height: 100%;
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+}
+.item h4 {
+    font-size: 18px;
+}
+
+.item h4, .item p, .item ul {
+    margin-bottom: 5px;
+}
+
+.thumb-content .btn {
+    color: #7ac400;
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: bold;
+    background: none;
+    border: 1px solid #7ac400;
+    padding: 6px 14px;
+    margin-top: 5px;
+    line-height: 16px;
+    border-radius: 20px;
+}
+
+  .thumb-content .btn:hover, .thumb-content .btn:focus {
+        color: #fff;
+        background: #7ac400;
+        box-shadow: none;
+    }
+
+ .thumb-content .btn i {
+        font-size: 14px;
+        font-weight: bold;
+        margin-left: 5px;
+    }
+
+ .item-price {
+    font-size: 13px;
+    padding: 2px 0;
+}
+
+    .item-price strike {
+        opacity: 0.7;
+        margin-right: 5px;
+    }
+
+
+
+
+.wish-icon {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 99;
+    cursor: pointer;
+    font-size: 16px;
+    color: #abb0b8;
+}
+.wish-icon .fa-heart {
+        color: #ff6161;
+    }
+
+.star-rating li {
+    padding: 0;
+}
+
+.star-rating i {
+    font-size: 14px;
+    color: #ffc000;
+}

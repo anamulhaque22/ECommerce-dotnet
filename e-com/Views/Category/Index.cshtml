@@ -1,33 +1,35 @@
 ﻿@model IEnumerable<e_com.EF.Category>
-
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Create";
+    ViewBag.HeadingTitle = "Category List";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 }
+<div class="container">
+    <table class="table table-success table-striped table-hover">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Action</th>
+        </tr>
 
-<h2>Index</h2>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Id
+                </td>
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    <a class="me-2" href="edit/@item.Id"><i class="fa-solid fa-pen-to-square"></i></a>
+                    <a class="ms-2" href="Delete/@item.Id">
+                        <i class="fa-solid fa-trash"></i>
+                    </a>
+                </td>
+            </tr>
+        }
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th></th>
-    </tr>
+    </table>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
-
-</table>
+</div>

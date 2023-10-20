@@ -3,43 +3,106 @@
 @{
     ViewBag.Title = "Index";
 }
-
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Price)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CId)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CId)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
-
-</table>
+<script>
+    $(document).ready(function () {
+        $(".wish-icon i").click(function () {
+            $(this).toggleClass("fa-solid fa-heart");
+        });
+    });
+</script>
+<div class="container-xl">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="thumb-wrapper">
+                        <span class="wish-icon"><i class="fa-solid fa-heart"></i></span>
+                        <div class="img-box">
+                            <img src="/examples/images/products/ipad.jpg" class="img-fluid" alt="">
+                        </div>
+                        <div class="thumb-content">
+                            <h4>Apple iPad</h4>
+                            <div class="star-rating">
+                                <ul class="list-inline">
+                                    <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                    <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                    <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                    <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                    <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+                                </ul>
+                            </div>
+                            <p class="item-price"><strike>$400.00</strike> <b>$369.00</b></p>
+                            <a href="#" class="btn btn-primary">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="thumb-wrapper">
+                        <span class="wish-icon"><i class="fa fa-heart-o"></i></span>
+                        <div class="img-box">
+                            <img src="/examples/images/products/headphone.jpg" class="img-fluid" alt="Headphone">
+                        </div>
+                        <div class="thumb-content">
+                            <h4>Sony Headphone</h4>
+                            <div class="star-rating">
+                                <ul class="list-inline">
+                                    <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                    <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                    <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                    <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                    <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+                                </ul>
+                            </div>
+                            <p class="item-price"><strike>$25.00</strike> <b>$23.99</b></p>
+                            <a href="#" class="btn btn-primary">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="thumb-wrapper">
+                        <span class="wish-icon"><i class="fa fa-heart-o"></i></span>
+                        <div class="img-box">
+                            <img src="/examples/images/products/macbook-air.jpg" class="img-fluid" alt="Macbook">
+                        </div>
+                        <div class="thumb-content">
+                            <h4>Macbook Air</h4>
+                            <div class="star-rating">
+                                <ul class="list-inline">
+                                    <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                    <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                    <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                    <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                    <li class="list-inline-item"><i class="fa fa-star-half-o"></i></li>
+                                </ul>
+                            </div>
+                            <p class="item-price"><strike>$899.00</strike> <b>$649.00</b></p>
+                            <a href="#" class="btn btn-primary">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="thumb-wrapper">
+                        <span class="wish-icon"><i class="fa fa-heart-o"></i></span>
+                        <div class="img-box">
+                            <img src="/examples/images/products/nikon.jpg" class="img-fluid" alt="Nikon">
+                        </div>
+                        <div class="thumb-content">
+                            <h4>Nikon DSLR</h4>
+                            <div class="star-rating">
+                                <ul class="list-inline">
+                                    <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                    <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                    <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                    <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+                                    <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+                                </ul>
+                            </div>
+                            <p class="item-price"><strike>$315.00</strike> <b>$250.00</b></p>
+                            <a href="#" class="btn btn-primary">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

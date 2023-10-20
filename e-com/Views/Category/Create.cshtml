@@ -2,11 +2,16 @@
 
 @{
     ViewBag.Title = "Create";
+    ViewBag.HeadingTitle = "Add Category";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 }
 
-<h2>Create</h2>
-<form action="" method="post">
-    Cagegory Name: 
-    <input type="text" name="Name" value="" /> <br />
-    <input type="submit" name="submit" value="Submit" />
-</form>
+<div class="d-flex align-items-center justify-content-center h-100">
+    <form method="post" action="" class="shadow-lg p-4 mb-5 bg-body-tertiary rounded">
+        <div class="form-group mb-3">
+            <label class="form-label" for="title">Category Name</label>
+            <input type="text" name="Name" class="form-control" id="title" placeholder="Category Name">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>

@@ -129,7 +129,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="EF\Category.cs">
       <DependentUpon>E_Comm.tt</DependentUpon>
     </Compile>
@@ -155,6 +157,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\UniqueImageFileNameGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-grid.css" />
@@ -173,10 +176,11 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\DashboardShideBar.css" />
     <Content Include="EF\E_Comm.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>E_Comm.Context.cs</LastGenOutput>
       <DependentUpon>E_Comm.edmx</DependentUpon>
+      <LastGenOutput>E_Comm.Context.cs</LastGenOutput>
     </Content>
     <Content Include="EF\E_Comm.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -227,9 +231,15 @@
     <Content Include="Views\Category\Index.cshtml" />
     <Content Include="Views\Category\Create.cshtml" />
     <Content Include="Views\Category\Edit.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Dashboard\Index.cshtml" />
+    <Content Include="Views\Shared\_DashboardLayout.cshtml" />
+    <Content Include="Views\Product\Create.cshtml" />
+    <Content Include="Views\Product\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Product\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
