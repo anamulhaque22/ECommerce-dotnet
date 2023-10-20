@@ -128,11 +128,16 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Auth\Logged.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="EF\Category.cs">
+      <DependentUpon>E_Comm.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Customer.cs">
       <DependentUpon>E_Comm.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\E_Comm.Context.cs">
@@ -149,6 +154,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>E_Comm.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Order.cs">
+      <DependentUpon>E_Comm.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\OrderDetail.cs">
+      <DependentUpon>E_Comm.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\Product.cs">
       <DependentUpon>E_Comm.tt</DependentUpon>
@@ -236,6 +247,8 @@
     <Content Include="Views\Shared\_DashboardLayout.cshtml" />
     <Content Include="Views\Product\Create.cshtml" />
     <Content Include="Views\Product\Edit.cshtml" />
+    <Content Include="Views\Customer\Registration.cshtml" />
+    <Content Include="Views\Customer\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

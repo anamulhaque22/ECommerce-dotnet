@@ -18,8 +18,20 @@
             </button>
             <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
                 <ul class="navbar-nav flex-grow-1">
-                    <li><a href="/dashboard/index">content</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/dashboard/index">Dashboard</a></li>
                    
+                </ul>
+                <ul class="d-flex list-unstyled">
+                    @if (Session["UserEmail"] != null)
+                    {
+                        <li class="me-3 text-light">Hello @Session["UserName"]</li>
+                        <li class="nav-item">@Html.ActionLink("Logout", "Logout", "Customer", new { area = "" }, new { @class = "text-light" })</li>
+                    }
+                    else
+                    {
+                        <li class="me-3 text-secondary-emphasis">@Html.ActionLink("Login", "Login", "Customer", new {area=""} ,new{@class = "text-light" })</li>
+                        <li class="nav-item">@Html.ActionLink("Registration", "Registration", "Customer", new { area = "" }, new { @class = "text-light" })</li>
+                    }
                 </ul>
             </div>
         </div>
