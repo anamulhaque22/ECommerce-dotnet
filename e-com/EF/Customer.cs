@@ -18,6 +18,7 @@ namespace e_com.EF
         public Customer()
         {
             this.Orders = new HashSet<Order>();
+            this.Carts = new HashSet<Cart>();
         }
     
         public int Id { get; set; }
@@ -29,5 +30,7 @@ namespace e_com.EF
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Orders { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Cart> Carts { get; set; }
     }
 }

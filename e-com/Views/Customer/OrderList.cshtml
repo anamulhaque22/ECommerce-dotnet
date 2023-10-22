@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "OrderList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Order List</h2>
+}
+<div class="container">
+    <table class="table table-success table-striped table-hover">
+        <thead>
+            <tr>
+                <th scope="col">OrderId</th>
+                <th scope="col">Customer</th>
+                <th scope="col">Total Amount</th>
+                <th scope="col">Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var c in Model)
+            {
+                <tr>
+                    <th class="align-middle" scope="row">@c.Id</th>
+                    <td class="align-middle">@c.Customer.Name</td>
+                    <td class="align-middle">@c.TotalAmount</td>
+                    <td class="align-middle">@c.OrderDate</td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>

@@ -14,6 +14,11 @@
         <AssociationConnector Association="Model.FK_Order_Customer" />
         <AssociationConnector Association="Model.FK_OrderDetail_Order" />
         <AssociationConnector Association="Model.FK_OrderDetail_Product" />
+        <EntityTypeShape EntityType="Model.Cart" Width="1.5" PointX="3" PointY="8.625" />
+        <EntityTypeShape EntityType="Model.CartItem" Width="1.5" PointX="5.25" PointY="4.625" />
+        <AssociationConnector Association="Model.FK_Cart_Customer" />
+        <AssociationConnector Association="Model.FK_CartItem_Cart" />
+        <AssociationConnector Association="Model.FK_CartItem_Product" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

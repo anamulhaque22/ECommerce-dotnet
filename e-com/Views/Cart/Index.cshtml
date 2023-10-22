@@ -1,0 +1,64 @@
+﻿@using e_com.Models
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Cart Item</h2>
+<div class="container">
+    @if (Session["cart"] != null)
+    {
+        <table class="table table-success table-striped table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Total Amount</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var c in (List<Item>)Session["cart"])
+                {
+                    <tr>
+                        <td class="align-middle">@c.Product.Title</td>
+                        <td class="align-middle"><img src="~/Content/Product/@c.Product.Image" alt="@c.Product.Title" width="80" /></td>
+                        <td class="align-middle">@c.Product.Price</td>
+                        <td class="align-middle">@c.Quantiy</td>
+                        <td class="align-middle">$@(c.Product.Price* c.Quantiy)</td>
+                        <td class="align-middle">
+                            <a href="@Url.Action("RemoveFromCart", "Cart", new { @ProductId = c.Product.Id })">
+                                <i class="fa-solid fa-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+                <tr>
+                    <td colspan="5">Total Amount</td>
+                    <td>
+                        @{
+                            List<Item> cart = (List<Item>)Session["cart"];
+                            var total = (from data in cart
+                                         select data.Product.Price * data.Quantiy
+                                ).Sum();
+                        <h2>$@total</h2>
+                        }
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+        <p class="text-danger">@(ViewBag.Notification != null ? ViewBag.Notification : "")</p>
+        <a class="btn btn-primary" href="@Url.Action("PlaceOrder", "Cart")">Place Order</a>
+
+}
+else
+            {
+                <h3>No items in your cart!</h3>
+            }
+</div>
+
+

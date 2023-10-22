@@ -12,25 +12,18 @@ namespace e_com.EF
     using System;
     using System.Collections.Generic;
     
-    public partial class Product
+    public partial class Cart
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Product()
+        public Cart()
         {
-            this.OrderDetails = new HashSet<OrderDetail>();
             this.CartItems = new HashSet<CartItem>();
         }
     
         public int Id { get; set; }
-        public string Title { get; set; }
-        public string Image { get; set; }
-        public string Description { get; set; }
-        public double Price { get; set; }
-        public int CId { get; set; }
+        public int CustomerId { get; set; }
     
-        public virtual Category Category { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+        public virtual Customer Customer { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CartItem> CartItems { get; set; }
     }

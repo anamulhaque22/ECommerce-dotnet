@@ -51,5 +51,17 @@ namespace e_com.Controllers
             ViewBag.Notification = "Wrong Username or Passowrd!";
             return View();
         }
+
+        public ActionResult OrderList()
+        {
+            var db = new E_CommEntities();
+            var orders = new List<Order>();
+            if (Session["UserEmail"] != null)
+            {
+                string customerEmail = (string)Session["UserEmail"];
+                orders = db.Orders.Where(o => o.Customer.Email == customerEmail).ToList();
+            }
+            return View(orders);
+        }
     }
 }
