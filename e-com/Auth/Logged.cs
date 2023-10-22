@@ -10,7 +10,7 @@ namespace e_com.Auth
     {
         protected override bool AuthorizeCore(HttpContextBase httpContext)
         {
-            if (httpContext.Session["uname"] != null) return true;
+            if (httpContext.Session["UserEmail"] != null) return true;
             return false;
         }
     }

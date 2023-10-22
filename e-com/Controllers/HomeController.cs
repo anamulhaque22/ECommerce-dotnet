@@ -1,4 +1,5 @@
-﻿using e_com.EF;
+﻿using e_com.Auth;
+using e_com.EF;
 using System;
 using System.Collections.Generic;
 using System.Linq;
