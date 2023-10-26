@@ -52,7 +52,7 @@ namespace e_com.Controllers
                 }
                 Session["cart"] = cart;
             }
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Home");
         }
 
         public ActionResult RemoveFromCart(int ProductId) {
