@@ -52,6 +52,13 @@ namespace e_com.Controllers
             return View();
         }
 
+        public ActionResult Logout()
+        {
+            Session.Remove("UserEmail");
+            Session.Remove("UserName");
+            return RedirectToAction("Index", "Home");
+        }
+
         public ActionResult OrderList()
         {
             var db = new E_CommEntities();

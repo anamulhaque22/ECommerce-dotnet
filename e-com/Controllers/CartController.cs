@@ -23,6 +23,35 @@ namespace e_com.Controllers
             return View();
         }
 
+        public ActionResult OrderList()
+        {
+
+            var db = new E_CommEntities();
+            var orders = new List<Order>();
+            orders = db.Orders.ToList();
+            return View(orders);
+        }
+
+        // order status changing
+        [HttpGet]
+        public ActionResult ChangeOrderStatus(int orderId) {
+            var db = new E_CommEntities();
+            var order = db.Orders.Find(orderId);
+            return View(order);
+        }
+
+        [HttpPost]
+        public ActionResult ChangeOrderStatus()
+        {
+            string status = Request.Form["Status"];
+            int id = Convert.ToInt16(Request.Form["Id"]);
+            var db = new E_CommEntities();
+            var order = db.Orders.Find(id);
+            order.OrderStatus = status;
+            db.SaveChanges();
+            return RedirectToAction("OrderList", "Cart");
+        }
+
         public ActionResult AddToCart(int ProductId) {
             if (Session["cart"] == null)
             {
